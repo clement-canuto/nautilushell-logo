@@ -5,7 +5,7 @@ now=`date +"%Y%m%d%H%M%S"`
 mkdir $now-release
 
 if [ $# -ne 1 ]; then
-    echo "Illegal number of parameters - Usage : package.sh file.svg"
+    echo "Illegal number of parameters - Usage :\n package.sh file.svg"
 else
     for format in "svg" "png" "pdf" "eps"
     do
@@ -18,7 +18,7 @@ else
                 done
                 ;;
             svg)  
-                cp nautilushell.svg $now-release/$format/
+                cp $1 $now-release/$format/
                 ;;
             pdf)  
                 inkscape --export-pdf=$now-release/$format/file.$format --file $1
