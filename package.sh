@@ -12,19 +12,19 @@ else
         mkdir $now-release/$format
         case $format in
             png)  
-                for size in 16 32 64 128 256 512 1024
+                for size in 16 32 64 96 120 128 144 180 256 512 1024
                 do
-                    inkscape --export-png=$now-release/$format/file_$size.$format --export-width=$size --file $1
+                    inkscape $1 --export-filename=$now-release/$format/favicon@$size.$format --export-width=$size
                 done
                 ;;
             svg)  
                 cp $1 $now-release/$format/
                 ;;
             pdf)  
-                inkscape --export-pdf=$now-release/$format/file.$format --file $1
+                inkscape $1 --export-filename=$now-release/$format/file.$format
                 ;;
             eps) 
-                inkscape --export-eps=$now-release/$format/file.$format --file $1
+                inkscape $1 --export-filename=$now-release/$format/file.$format 
             ;;
         esac
     done
@@ -35,4 +35,3 @@ else
     zip -r $now-release.zip $now-release/ --encrypt --password $pwd
 #    rm -rf $now-release/
 fi
-
