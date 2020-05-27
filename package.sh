@@ -14,11 +14,11 @@ else
             png)  
                 for size in 16 32 64 96 120 128 144 180 256 512 1024
                 do
-                    inkscape $1 --export-filename=$now-release/$format/favicon@$size.$format --export-width=$size
+                    inkscape $1 --export-filename=$now-release/$format/file_$size.$format --export-width=$size
                 done
                 ;;
             svg)  
-                cp $1 $now-release/$format/
+                cp $1 $now-release/$format/file.svg
                 ;;
             pdf)  
                 inkscape $1 --export-filename=$now-release/$format/file.$format
